@@ -50,3 +50,33 @@
 - 记忆 → fable-operating-system-skill.md 更新至 v1.1，MEMORY.md 索引行同步
 
 ## 状态：✅ 全部完成（2026-07-11）
+
+---
+
+# 任务 2：v1.3 完整修缮 + 发布 GitHub（2026-07-12）
+
+**来源**：「好的完整修完 然后 upload on https://github.com/ycl-2004/yc_Fable5 create a git repo once its done」
+
+## 需求清单（append-only）
+
+- [x] P0-1 四个 slash commands（/fable /fable-audit /fable-retro /fable-check），装入 ~/.claude/commands/ 并入库 commands/
+- [x] P0-3 审计历史库：.fable/audits/ + 首例归档（v1 自检审计，18/21）+ rubric 计分与归档规则
+- [x] P1-4 隐私拆层：§7 通用化，个人指针移入 fable-operating-system/personal/（gitignore）
+- [x] P2-8 计分器（轻量版：0-3/维 + 总分百分比）
+- [x] P2-9 share-memory 桥（agent-integration.md 一条规则）
+- [x] 手册同步 v1.3（§15.4）+ evolution CHANGELOG v1.3
+- [x] README / LICENSE(MIT) / PRIVACY / .gitignore
+- [x] git init + 推送 ycl-2004/yc_Fable5
+- [ ] （待真实场景）P0-2 真实任务回填验证 ×2；P1-6 Codex 服从率实测；P2-7 体检自动化
+
+## 决策日志
+
+- 仓库已存在且为 PUBLIC → 必须先做隐私拆层再推送（个人指针留本机 personal/，泄漏 grep 复检通过后才 git add）。
+- SessionStart hook 沿用既定决策不装；体检先用 /fable-check 手动。
+
+## 验证证据
+
+- slash commands 生效：本会话可用列表出现 fable / fable-audit / fable-retro / fable-check
+- 泄漏检查：敏感词 grep 仅命中 personal/（已 gitignore）；`git ls-tree -r main | grep personal` 为空
+- 推送成功：root-commit 1952e6a，33 files，`gh repo view` pushedAt=2026-07-12T04:37Z，branch main
+- 安装副本已 rsync（含 personal/ 私有层）
