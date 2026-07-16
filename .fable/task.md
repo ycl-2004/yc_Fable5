@@ -128,4 +128,5 @@
 - 三件套一致：FABLE_CORE #6 / agents-md-section / ~/.codex/AGENTS.md 三处均含「可逆直接推进 + 回合完整性」与活水条款（Edit 逐处成功）
 - 下架 skill 清理后 grep 复核：lark-mail 等 6 名仅剩「已下架」标注行与 CHANGELOG 记录，无活引用
 - 手册瘦身：320 行 → 约 120 行导览层，「19 类」漂移点随细则段一并消除
-- git push：见下方 commit 记录（执行后回填）
+- git push：commit d7283eb（16 files，+167/−288），cac958f..d7283eb 推送 origin/main 成功；泄漏检查通过（personal/ 在 ignored，git ls-files 含 personal 计数 0）
+- symlink 运行时实证：改完 fable-check 描述后，本会话技能列表实时刷新为新描述「安装链接」——Claude Code 确认经 symlink 加载
