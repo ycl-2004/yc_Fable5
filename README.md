@@ -32,7 +32,7 @@ fable-operating-system/     # 核心 Skill（装进 ~/.claude/skills/）
 └── personal/               # 私有层（.gitignore 排除，本仓库不含）
 commands/                   # 四个 slash commands（装进 ~/.claude/commands/）
 .fable/                     # 工件示例：任务文件 + 审计归档（真实历史，dogfooding）
-FABLE_OPERATING_SYSTEM.md   # 人类可读版完整手册（15 节）
+FABLE_OPERATING_SYSTEM.md   # 手册（导览层；细则的单一事实源在 references/）
 FABLE_REVIEW_AND_ROADMAP.md # 多维评分与优化路线
 VALIDATION_TESTS.md         # 6 项验证（5 模拟 + 1 真实执行）
 ```
@@ -44,6 +44,13 @@ git clone https://github.com/ycl-2004/yc_Fable5.git
 cd yc_Fable5
 cp -R fable-operating-system ~/.claude/skills/
 cp commands/*.md ~/.claude/commands/
+```
+
+进阶：如果打算持续修改这套系统，用 symlink 替代 cp——改仓库即生效，没有「忘记同步安装副本」问题（作者自 v1.4 采用此方式）：
+
+```bash
+ln -s "$(pwd)/fable-operating-system" ~/.claude/skills/fable-operating-system
+for f in commands/*.md; do ln -s "$(pwd)/$f" ~/.claude/commands/"$(basename "$f")"; done
 ```
 
 然后两个可选接入点：
@@ -73,4 +80,4 @@ cp commands/*.md ~/.claude/commands/
 
 ## 版本与许可
 
-当前 **v1.3**（2026-07-12），完整版本史见 `fable-operating-system/references/evolution.md`。MIT License。
+当前 **v1.4**（2026-07-15），完整版本史见 `fable-operating-system/references/evolution.md`。MIT License。

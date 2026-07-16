@@ -126,7 +126,7 @@
 ## 15. 邮件与日历任务
 
 - **输入检查**：哪个体系（飞书/Gmail）？读还是写？
-- **Skills**：lark-mail / lark-calendar / Gmail MCP。
+- **Skills**：Gmail MCP / lark-calendar（lark-mail 已下架，飞书邮箱走 lark-openapi-explorer）。
 - **纪律**：读随便，**发送/回复/删除先确认**；草稿可以直接建。
 - **常见错误**：把"帮我回复"理解成直接发送（应先给草稿）。
 

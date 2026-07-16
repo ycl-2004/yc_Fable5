@@ -49,8 +49,8 @@
 | 数据/表格 | Excel、CSV、统计 | lark-sheets / Bash(python) | 数字与源数据核对 |
 | 演示文稿 | slides、讲演 | yc-design（16:9 讲演）/ lark-slides | 先定场景再选工具 |
 | 自动化 | "以后每次"、"定时" | update-config(hooks) / schedule / loop | 我记不住跨会话行为，必须落配置 |
-| 邮件日历 | 邮件、日程 | lark-mail / lark-calendar / Gmail MCP | 发送前确认 |
-| 元任务 | 建 Skill、整理记忆 | lark-skill-maker / share-memory / 本 Skill | 基于真实能力，不虚构 |
+| 邮件日历 | 邮件、日程 | Gmail MCP / lark-calendar（lark-mail 已下架） | 发送前确认 |
+| 元任务 | 建 Skill、整理记忆 | share-memory / 本 Skill | 基于真实能力，不虚构 |
 | 高风险 | 安全、敏感 | — | 需授权语境；破坏性直接拒绝并解释 |
 
 ## §3 Skill 路由决策规则

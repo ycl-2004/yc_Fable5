@@ -1,6 +1,8 @@
 # Skills 与工具能力地图
 
-盘点日期：2026-07-11。来源：`~/.claude/skills`（47 个）+ 插件/内建技能 + 核心工具 + MCP 服务器。新装 Skill 后本文件需要更新。
+盘点日期：2026-07-15。来源：`~/.claude/skills`（42 个有效；另有 6 个悬空 symlink 待清理，见下）+ 插件/内建技能 + 核心工具 + MCP 服务器。新装/移除 Skill 后本文件需要更新。
+
+> 2026-07-15 盘点变更：lark-mail、lark-approval、lark-okr、lark-attendance、lark-apps、lark-skill-maker 六个 skill 已随 lark 套件更新下架（`~/.claude/skills/` 里残留指向 `~/.agents/skills/` 的悬空链接）。这些领域的需求改走 lark-openapi-explorer 原生 API（邮件另有 Gmail MCP）。
 
 ## 一、核心工具（无需路由）
 
@@ -18,7 +20,7 @@
 | CronCreate / ScheduleWakeup | 定时/自唤醒 | 配合 schedule / loop Skill 用 |
 | 记忆系统 | `~/.claude/projects/.../memory/` | 一事一文件 + MEMORY.md 索引；不存 repo 已记录的事 |
 
-## 二、飞书生态（30+ lark-*）
+## 二、飞书生态（21 个 lark-*）
 
 **总路由规则**：按资源 URL 路径模式和 token 类型路由，不看域名（doubao.com 的 /docx/ /sheets/ /wiki/ 也走 lark-*）。认证问题一律先 lark-shared。CLI 没覆盖的原生 API 走 lark-openapi-explorer。
 
@@ -31,22 +33,17 @@
 | Markdown 文件 | lark-markdown | 导入为在线文档走 lark-drive |
 | 知识库空间/节点 | lark-wiki | 编辑内容切 lark-doc 等 |
 | 消息/群/卡片 | lark-im | 发送前确认 |
-| 邮件 | lark-mail | 纯联系人查询走 lark-contact |
+| 邮件 | Gmail MCP（见七） | lark-mail 已下架；飞书邮箱需求走 lark-openapi-explorer |
 | 日历/日程/会议室 | lark-calendar | 历史会议走 lark-vc |
-| 任务/清单/任务智能体 | lark-task | 审批待办走 lark-approval |
-| 审批 | lark-approval | 非审批待办走 lark-task |
+| 任务/清单/任务智能体 | lark-task | 审批类（lark-approval 已下架）走 lark-openapi-explorer |
 | 历史会议/纪要/逐字稿 | lark-vc | 实时入会走 lark-vc-agent |
 | 会中实时 | lark-vc-agent | 已结束会议走 lark-vc |
 | 妙记/音视频转写 | lark-minutes | 本地音视频转纪要优先走它，不用 whisper |
 | 会议纪要 note_id 直查 | lark-note | 仅已知 note_id 时 |
 | 通讯录解析 open_id | lark-contact | 部门树遍历走 openapi-explorer |
-| OKR | lark-okr | 绩效不管 |
-| 考勤 | lark-attendance | — |
 | 幻灯片 /slides/ | lark-slides | 内嵌画板属本 Skill；独立画板走 lark-whiteboard |
 | 画板 | lark-whiteboard | — |
-| 妙搭应用开发/部署 | lark-apps | HTML 发布、全栈、日志监控 |
 | 实时事件订阅 | lark-event | bot、流式消费 |
-| 封装自定义 lark Skill | lark-skill-maker | — |
 | 会议纪要周报工作流 | lark-workflow-meeting-summary | — |
 | 日程待办摘要工作流 | lark-workflow-standup-report | — |
 | 认证/授权/scope | lark-shared | 所有 lark-cli 认证问题的入口 |
