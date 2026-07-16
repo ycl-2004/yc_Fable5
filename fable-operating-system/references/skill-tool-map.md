@@ -1,8 +1,8 @@
 # Skills 与工具能力地图
 
-盘点日期：2026-07-15。来源：`~/.claude/skills`（42 个有效；另有 6 个悬空 symlink 待清理，见下）+ 插件/内建技能 + 核心工具 + MCP 服务器。新装/移除 Skill 后本文件需要更新。
+盘点日期：2026-07-15。来源：`~/.claude/skills`（42 个）+ 插件/内建技能 + 核心工具 + MCP 服务器。新装/移除 Skill 后本文件需要更新。
 
-> 2026-07-15 盘点变更：lark-mail、lark-approval、lark-okr、lark-attendance、lark-apps、lark-skill-maker 六个 skill 已随 lark 套件更新下架（`~/.claude/skills/` 里残留指向 `~/.agents/skills/` 的悬空链接）。这些领域的需求改走 lark-openapi-explorer 原生 API（邮件另有 Gmail MCP）。
+> 2026-07-15 盘点变更：lark-mail、lark-approval、lark-okr、lark-attendance、lark-apps、lark-skill-maker 六个 skill 已随 lark 套件更新下架（残留的悬空 symlink 已于同日经用户确认清理）。这些领域的需求改走 lark-openapi-explorer 原生 API（邮件另有 Gmail MCP）。
 
 ## 一、核心工具（无需路由）
 
