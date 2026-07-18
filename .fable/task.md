@@ -130,3 +130,47 @@
 - 手册瘦身：320 行 → 约 120 行导览层，「19 类」漂移点随细则段一并消除
 - git push：commit d7283eb（16 files，+167/−288），cac958f..d7283eb 推送 origin/main 成功；泄漏检查通过（personal/ 在 ignored，git ls-files 含 personal 计数 0）
 - symlink 运行时实证：改完 fable-check 描述后，本会话技能列表实时刷新为新描述「安装链接」——Claude Code 确认经 symlink 加载
+
+---
+
+# 任务 4：v1.5 抗膨胀整改 + 思考内核（2026-07-17）
+
+**来源**：十维自审（77/100，`.fable/audits/2026-07-17-skill-longterm-risk-tenscore.md`）后用户确认「yes 优化 然后确保所有有调用这个 skill 的地方都更新了」
+
+## 目标（一句话）
+
+给进化回路装上「出口」（规则守恒 + 滚动归档 + 行数预算），把思考内核四原则成文进契约，并同步全部接入点。
+
+## 需求清单（append-only）
+
+- [x] 1 evolution.md 复盘四问守恒闸 + 行数预算入第 3 步
+- [x] 2 evolution.md 保鲜例行「收缩审查」+ CHANGELOG 滚动规则
+- [x] 3 CHANGELOG v1.5 条目；v1.0–v1.3 移 HISTORY.md（修复 v1.3 标题丢失）
+- [x] 4 FABLE_CORE §思考内核（四原则）
+- [x] 5 三件套同步：agents-md-section.md + ~/.codex/AGENTS.md 英文版
+- [x] 6 SKILL.md 核心流程后一行指针 + References 行更新
+- [x] 7 README：四问 / 结构树 + HISTORY / v1.3 漂移修正 / 版本 v1.5
+- [x] 8 手册：四问 / 一核四件树 + HISTORY.md
+- [x] 9 全仓「三问」引用统一 + 追加发现：fable-retro.md 残留已废弃的 rsync 步骤（v1.4 漏改），一并修复
+- [x] 10 行数预算合规检查（references ≤150）
+- [x] 11 记忆更新（fable-operating-system-skill.md + MEMORY.md → v1.5；顺带修正已过时的「悬空 symlink 待清理」记述）
+- [x] 12 体检（symlink 经链接读新内容 + CLAUDE.md / AGENTS.md 段确认）
+- [x] 13 git commit + push + 泄漏检查
+
+## 决策日志
+
+- 思考内核放 FABLE_CORE（跨 agent 可携带），SKILL.md 只留一行关键词指针——权衡：自用场景多一跳，换单一事实源不双写。
+- 收缩审查只写保鲜例行一处，版本规则节不重复——守恒条款首次自我应用。
+- 本次收缩审查结论：十条契约暂不退役任何条目——对 Claude 冗余的对 Codex 仍必要，契约层从严保留。
+- 归档时发现 v1.3 标题行在 v1.4 编辑中丢失（条目被吞入 v1.4），随滚动归档修复。
+
+## 验证证据
+
+- 行数预算合规：`wc -l references/*.md` 全部 ≤150（最大 task-workflows 145；evolution 78→69 行，瘦身来自 CHANGELOG 滚动）
+- symlink 经链接实读新内容：`$HOME/.claude/skills/.../SKILL.md` grep「思考内核」×2、FABLE_CORE ×1、HISTORY.md 可读；`$HOME/.claude/commands/fable-retro.md` 经链接 grep「四问」×1
+- 三件套一致：FABLE_CORE §思考内核（中文）+ agents-md-section.md 与 ~/.codex/AGENTS.md 各含「Thinking core」bullet ×1（同文）
+- 接入点：~/.claude/CLAUDE.md 含 fable-operating-system 指令 ✓；4 个 command symlink readlink 全部指向源目录
+- 「三问」残留仅 evolution.md 两处合法行文（「前三问皆是才升级」+ CHANGELOG 历史描述）；ROADMAP 为历史评审快照，按最小范围不追改
+- 泄漏检查：`git ls-files | grep -c personal` = 0
+- 运行时实证：改 fable-retro.md 后本会话 skills 列表实时刷新（fable-operating-system 与 fable-retro 出现在增量通知中）——symlink 加载链路继续有效
+- push：见 git log（commit 与推送结果记录在交付汇报）

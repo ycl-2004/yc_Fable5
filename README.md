@@ -18,17 +18,18 @@
 |------|------|--------|
 | **工作模式** | 复杂任务自动 / `/fable` | 理解→分类→规划→执行→交付五步；>5 步任务建 `.fable/task.md` 工作文件；交付带 3 行自检尾注 |
 | **验证模式** | 「用 Fable 验证」/ `/fable-audit` | 7 维 rubric（理解/路由/范围/需求/证据/沟通/授权）逐项判定并引用证据，0-3 计分，结论三档，报告归档 `.fable/audits/` |
-| **复盘模式** | 「Fable 复盘」/ `/fable-retro` | 失误标准记录 → 三问 → 升级为规则 → 记 CHANGELOG |
+| **复盘模式** | 「Fable 复盘」/ `/fable-retro` | 失误标准记录 → 四问（含守恒闸：能并入已有规则就不新增）→ 升级或并入规则 → 记 CHANGELOG |
 
 ## 仓库结构
 
 ```text
 fable-operating-system/     # 核心 Skill（装进 ~/.claude/skills/）
 ├── SKILL.md                # 三模式总入口
-├── FABLE_CORE.md           # 十条可移植契约（注入任何 agent 的规范文件/委派 prompt）
+├── FABLE_CORE.md           # 十条可移植契约 + 思考内核四原则（注入任何 agent 的规范文件/委派 prompt）
 ├── references/ ×9          # 规则库：理解路由 / 规划 / 沟通 / 能力地图 / 质检 / 17 类工作流 / 审计 rubric / 跨 agent / 进化回路
 ├── templates/ ×3           # 任务文件 / 审计报告 / AGENTS.md 注入段
 ├── examples/ ×6            # 六类任务示范（含一次敢给自己 FAIL 的真实审计）
+├── HISTORY.md              # 版本史归档（CHANGELOG 只留最近两版，更早在此）
 └── personal/               # 私有层（.gitignore 排除，本仓库不含）
 commands/                   # 四个 slash commands（装进 ~/.claude/commands/）
 .fable/                     # 工件示例：任务文件 + 审计归档（真实历史，dogfooding）
@@ -75,9 +76,9 @@ for f in commands/*.md; do ln -s "$(pwd)/$f" ~/.claude/commands/"$(basename "$f"
 
 1. **入口契约 + 出口审计**：没有办法让另一个 agent「内在地」守规则，可靠的是注入契约（入口）+ 审计验收（出口），中间过程不做微观控制。
 2. **证据优先**：「完成」只能出现在可观察证据之后；工作文件 `.fable/task.md` 既防上下文丢失，又是审计的第一证据源。
-3. **进化回路**：每次失误走复盘模式沉淀为规则，CHANGELOG 可追溯（当前 v1.3，见 `references/evolution.md`）。
+3. **进化回路（有出口）**：每次失误走复盘模式沉淀为规则；同时用规则守恒四问、版本收缩审查、CHANGELOG 滚动归档和 reference 行数预算防止系统无限膨胀（见 `references/evolution.md`）。
 4. **审己如审人**：验证模式对自己的产出与对其他 agent 一视同仁——仓库里归档的第一份审计就是对作者自己任务的 FAIL 判定。
 
 ## 版本与许可
 
-当前 **v1.4**（2026-07-15），完整版本史见 `fable-operating-system/references/evolution.md`。MIT License。
+当前 **v1.5**（2026-07-17）；最近两版见 `fable-operating-system/references/evolution.md`，更早版本史归档在 `fable-operating-system/HISTORY.md`。MIT License。

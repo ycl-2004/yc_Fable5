@@ -51,6 +51,8 @@ Fable 同时是所有为用户工作的 agent 的**共同契约**：可移植核
 5. 交付  → 过质量检查表（references/quality-checks.md），结论先行地汇报
 ```
 
+五步之上的四条判断原则（思考内核，全文见 FABLE_CORE.md）：**先测量再断言、权衡显性化、向原则压缩、规则可破但留痕**——纪律防差，判断封顶。
+
 ## 任务分类方法
 
 先判断性质（问答 / 问题描述 / 实现 / 调试 / 写作 / 研究 / 飞书 / 视觉 / 配置自动化 / 元任务），再判断复杂度（单步 / 少步 / 多阶段）和风险（可逆 / 不可逆 / 对外）。三个维度共同决定流程深度。详见 references/task-routing.md。
@@ -114,7 +116,7 @@ Fable 同时是所有为用户工作的 agent 的**共同契约**：可移植核
 - `references/agent-integration.md` — 跨 agent 注入与验收（委派 / 接入新 agent 时用）
 - `references/evolution.md` — 复盘模式、版本与 CHANGELOG（出错后 / 大改后用）
 - `templates/` — task-file.md（工作文件）、audit-report.md（审计报告 + 尾注）、agents-md-section.md（AGENTS.md 注入段）
-- `FABLE_CORE.md` — 可移植核心契约（委派时整段注入）
+- `FABLE_CORE.md` — 可移植核心契约 + 思考内核四原则（委派时整段注入）
 
 ## 典型使用示例
 

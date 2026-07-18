@@ -87,7 +87,7 @@
 
 - **工作模式**（默认）：五步流程（理解→分类→规划→执行→交付），>5 步任务建 `.fable/task.md` 工作文件（同时是审计的第一证据源），复杂交付末尾附 3 行自检尾注。
 - **验证模式**：用户说「用 Fable 验证/审计」或验收其他 agent 产出时启动。7 维 rubric 逐项判 PASS/FAIL/N/A 并引用证据，0-3 计分，结论三档（通过 / 有条件通过 / 不通过），关键失败直接不通过；报告归档 `.fable/audits/`。
-- **复盘模式**：出错被纠正后运行。失误记录→三问→升级为规则→改对应 reference→记 CHANGELOG。
+- **复盘模式**：出错被纠正后运行。失误记录→四问（含守恒闸：能并入已有规则就改写不新增）→升级为规则→改对应 reference→记 CHANGELOG（只留最近两版，更早归档 `fable-operating-system/HISTORY.md`）。
 
 一键入口：`/fable`、`/fable-audit`、`/fable-retro`、`/fable-check`（体检）。
 
@@ -96,10 +96,11 @@
 ```text
 ┌─ 核心：fable-operating-system Skill（源码 = 运行时：~/.claude/skills/ 经 symlink 指向本仓库）
 │   ├─ SKILL.md            三模式总入口
-│   ├─ FABLE_CORE.md       宪法：十条可移植契约 + 活水条款
-│   ├─ references/ ×9      规则库（单一事实源）
+│   ├─ FABLE_CORE.md       宪法：十条可移植契约 + 思考内核四原则 + 活水条款
+│   ├─ references/ ×9      规则库（单一事实源，单文件 ~150 行软预算）
 │   ├─ templates/ ×3       task-file / audit-report / agents-md-section
-│   └─ examples/ ×6        六类示范（含真实审计示范）
+│   ├─ examples/ ×6        六类示范（含真实审计示范）
+│   └─ HISTORY.md          版本史归档（CHANGELOG 滚动，只留最近两版）
 ├─ 件1 手册：本文件（导览层）
 ├─ 件2 接入点：~/.claude/CLAUDE.md（管我，确定性加载）＋ ~/.codex/AGENTS.md Fable 段（管 Codex）＋ 4 个 slash commands
 ├─ 件3 工件：各项目 .fable/task.md（任务状态）＋ .fable/audits/（审计历史库）
