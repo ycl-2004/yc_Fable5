@@ -76,9 +76,9 @@ for f in commands/*.md; do ln -s "$(pwd)/$f" ~/.claude/commands/"$(basename "$f"
 
 1. **入口契约 + 出口审计**：没有办法让另一个 agent「内在地」守规则，可靠的是注入契约（入口）+ 审计验收（出口），中间过程不做微观控制。
 2. **证据优先**：「完成」只能出现在可观察证据之后；工作文件 `.fable/task.md` 既防上下文丢失，又是审计的第一证据源。
-3. **进化回路（有出口）**：每次失误走复盘模式沉淀为规则；同时用规则守恒四问、版本收缩审查、CHANGELOG 滚动归档和 reference 行数预算防止系统无限膨胀（见 `references/evolution.md`）。
+3. **进化回路（有出口）**：每次失误走复盘模式沉淀为规则；同时用规则守恒四问、版本收缩审查、CHANGELOG 与 task.md 滚动归档、reference 行数预算防止系统无限膨胀（见 `references/evolution.md`）。
 4. **审己如审人**：验证模式对自己的产出与对其他 agent 一视同仁——仓库里归档的第一份审计就是对作者自己任务的 FAIL 判定。
 
 ## 版本与许可
 
-当前 **v1.5**（2026-07-17）；最近两版见 `fable-operating-system/references/evolution.md`，更早版本史归档在 `fable-operating-system/HISTORY.md`。MIT License。
+当前 **v1.6**（2026-07-19）；最近两版见 `fable-operating-system/references/evolution.md`，更早版本史归档在 `fable-operating-system/HISTORY.md`。MIT License。

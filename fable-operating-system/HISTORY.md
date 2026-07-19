@@ -4,6 +4,17 @@
 
 > 注：v1.3 的标题行曾在 v1.4 编辑中丢失，其条目一度被并入 v1.4 名下——迁移至此时已恢复（发现于 2026-07-17 十维审计后的归档作业，详见 v1.5 CHANGELOG）。
 
+## v1.4 — 2026-07-15
+
+- **契约 #6 双向化**（对齐 Fable 5 运行时的自主推进规范）：高风险先授权之外，补「可逆且在原始请求范围内的直接做完再汇报，不中途请示；回合结束前最后一段不能是未执行的计划或承诺」。planning-framework 新增 §回合完整性；communication-style 反模式清单 +1。三件套（FABLE_CORE / agents-md-section / `~/.codex/AGENTS.md`）已同步。
+- **活水条款**（FABLE_CORE §边界 + SKILL.md）：本系统是运行时规范的快照，与 agent 运行时规范冲突时按更严格/更新者执行并走复盘更新契约；运行时已内建保证的机制（临时目录位置、记忆文件格式等）不复制进契约，避免多一份漂移源。
+- **symlink 替代 rsync**：安装位置（skills 目录 + 4 个 commands）改为指向源目录的 symlink，消除「忘记同步」整类失误；可行性依据：全部 lark-* skill 一直以 symlink 形式正常被加载。体检第 3 项从 diff 改为链接健康检查。
+- **手册瘦身（单一事实源）**：FABLE_OPERATING_SYSTEM.md 与 references 重复的细则段（原 §3–§10、§14）替换为规则库导览与指针，保留独有内容（角色定位、核心原则、自诊断史、改进规则、架构叙事）。起因：双写已产生数字漂移（「19 类路由」实为 18）。
+- **quality-checks 证据闸门**：改系统状态（重启/删除/改配置）前核对证据支持该根因——模式匹配 ≠ 诊断。
+- **bug 修复**：/fable-check 示例命令引号内 `~` 不展开（改 `$HOME`，否则照跑必失败）；体检盲区——commands 装在 `~/.claude/commands/` 但同步检查只覆盖 skills 目录，已补；audit-report 模板总分分母写死 x/21 与「N/A 不计入分母」矛盾，改 x/(计入维度×3)。
+- **能力地图保鲜**：lark-mail / lark-approval / lark-okr / lark-attendance / lark-apps / lark-skill-maker 六个 skill 已随 lark 套件更新下架（`~/.claude/skills/` 残留悬空 symlink，已报告用户待清理），从能力地图与路由表移除；盘点日期更新 2026-07-15。
+- 失误沉淀：v1.3 把不可执行的命令写进了体检文件且漏掉 commands 同步面——规则升级为「体检/命令文件里的示例命令必须实际跑通一次再入库」。
+
 ## v1.3 — 2026-07-12
 
 - 新增 **slash commands 一键入口**：`/fable`（工作模式）、`/fable-audit`（验证模式）、`/fable-retro`（复盘模式）、`/fable-check`（体检）。源文件在仓库 `commands/`，安装于 `~/.claude/commands/`。触发从概率性升级为确定性。

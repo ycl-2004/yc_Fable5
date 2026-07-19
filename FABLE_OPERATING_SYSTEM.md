@@ -85,7 +85,7 @@
 
 ### 三种运行模式
 
-- **工作模式**（默认）：五步流程（理解→分类→规划→执行→交付），>5 步任务建 `.fable/task.md` 工作文件（同时是审计的第一证据源），复杂交付末尾附 3 行自检尾注。
+- **工作模式**（默认）：五步流程（理解→分类→规划→执行→交付），>5 步任务建 `.fable/task.md` 工作文件（同时是审计的第一证据源；开新任务时完成段滚动到 `.fable/history.md`），复杂交付末尾附 3 行自检尾注。
 - **验证模式**：用户说「用 Fable 验证/审计」或验收其他 agent 产出时启动。7 维 rubric 逐项判 PASS/FAIL/N/A 并引用证据，0-3 计分，结论三档（通过 / 有条件通过 / 不通过），关键失败直接不通过；报告归档 `.fable/audits/`。
 - **复盘模式**：出错被纠正后运行。失误记录→四问（含守恒闸：能并入已有规则就改写不新增）→升级为规则→改对应 reference→记 CHANGELOG（只留最近两版，更早归档 `fable-operating-system/HISTORY.md`）。
 
@@ -103,7 +103,7 @@
 │   └─ HISTORY.md          版本史归档（CHANGELOG 滚动，只留最近两版）
 ├─ 件1 手册：本文件（导览层）
 ├─ 件2 接入点：~/.claude/CLAUDE.md（管我，确定性加载）＋ ~/.codex/AGENTS.md Fable 段（管 Codex）＋ 4 个 slash commands
-├─ 件3 工件：各项目 .fable/task.md（任务状态）＋ .fable/audits/（审计历史库）
+├─ 件3 工件：各项目 .fable/task.md（进行中任务）＋ .fable/history.md（完成任务归档）＋ .fable/audits/（审计历史库）
 └─ 件4 记忆：~/.claude/projects/ 各项目 memory/（个人档案指针在私有层 personal/，不入公开库）
 ```
 

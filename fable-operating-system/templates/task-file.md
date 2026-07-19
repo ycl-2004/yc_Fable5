@@ -1,6 +1,8 @@
 # Fable 任务文件模板
 
 > 使用规则：超过约 5 步、跨会话、或委派给其他 agent 的任务，在项目目录建 `.fable/task.md`（可加入 .gitignore）。它有两个作用：①防上下文压缩丢状态 ②验证模式的第一证据源。需求清单只 append 不 replace；关键转折时更新决策日志。
+>
+> 滚动归档（v1.6）：task.md 只保留进行中任务。开新任务时先把已完成任务段按原文移入同目录 `.fable/history.md`（append-only 归档，不进日常 context），再写新任务；全文约 200 行为软上限，超限即滚动。「append-only」约束的是进行中任务的需求不得覆盖改写，不是整个文件永久只增。
 
 ```markdown
 # Fable 任务文件
